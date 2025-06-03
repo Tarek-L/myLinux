@@ -131,5 +131,5 @@ Then run `:Mason` to install.
 
 ---
 
-GO do something usefull.
+GO do something useful.
 
