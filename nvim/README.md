@@ -133,3 +133,14 @@ Then run `:Mason` to install.
 
 GO do something useful.
 
+---
+
+images : 
+![2025-06-03_15-27](https://github.com/user-attachments/assets/3dcab77e-ec2b-4d52-a6cd-78640e24fccc)
+![2025-06-03_15-25](https://github.com/user-attachments/assets/d5b1a233-9425-4dcc-8461-824ca9b757b5)
+![2025-06-03_15-24](https://github.com/user-attachments/assets/270d030b-adc0-4eb4-a04e-950cc9145d87)
+![2025-06-03_15-23_1](https://github.com/user-attachments/assets/82a927e8-99ab-4a4b-a2ff-5705059bedb2)
+![2025-06-03_15-23](https://github.com/user-attachments/assets/151459b3-c6a3-4935-9eb6-c8c4854281f4)
+![2025-06-03_15-22](https://github.com/user-attachments/assets/e808116d-c03d-4664-a03b-3090e8836bc5)
+
+
