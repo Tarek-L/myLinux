@@ -1,6 +1,8 @@
 vim.g.mapleader = " " -- Set <leader> to space
 vim.keymap.set("n", ";", ":", { noremap = true }) -- Remap ; to :
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
+vim.keymap.set("n", "<leader>q", ":q<CR>", { desc = "quit" })
+vim.keymap.set("n", "<leader>w", ":w<CR>", { desc = "write" })
 vim.keymap.set("n", "<leader>e", ":Ex<CR>", { desc = "Open file explorer" })
 vim.keymap.set("n", "<S-Tab>", "<cmd>bprevious<CR>", { desc = "Previous buffer" })
 vim.keymap.set("n", "<Tab>", "<cmd>bnext<CR>", { desc = "Next buffer" })

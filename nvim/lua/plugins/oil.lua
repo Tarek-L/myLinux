@@ -3,9 +3,9 @@ return {
 	lazy = false,
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	opts = {
-		default_file_explorer = true,
 		view_options = {
 			show_hidden = true,
+			default_file_explorer = true,
 		},
 		keymaps = {
 			["<CR>"] = "actions.select",

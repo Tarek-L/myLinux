@@ -18,8 +18,3 @@ vim.opt.signcolumn = "yes"
 vim.opt.clipboard = "unnamedplus"
 vim.opt.updatetime = 250
 vim.opt.timeoutlen = 300
-
-if vim.fn.argc() == 0 then
-  require("oil").open()
-end
-
