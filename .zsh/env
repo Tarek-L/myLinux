@@ -1,0 +1,16 @@
+# -----------------------------
+# Environment Variables
+# -----------------------------
+export EDITOR=nvim
+export MANPAGER="nvim +Man!"
+export PAGER="nvim +Man!"
+export PATH="$HOME/scripts:$PATH"
+export KEYTIMEOUT=1
+
+# -----------------------------
+# History Configuration
+# -----------------------------
+HISTSIZE=10000
+SAVEHIST=10000
+HISTFILE=~/.zsh_hist
+

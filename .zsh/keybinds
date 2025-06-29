@@ -1,0 +1,37 @@
+# -----------------------------
+# Keybindings & vi Mode
+# -----------------------------
+bindkey -v
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+bindkey -v '^?' backward-delete-char
+
+# Cursor shape for vi modes
+function zle-keymap-select {
+  case $KEYMAP in
+    vicmd) echo -ne '\e[1 q' ;;  # block
+    viins|main|'') echo -ne '\e[5 q' ;;  # beam
+  esac
+}
+zle -N zle-keymap-select
+
+zle-line-init() {
+  zle -K viins
+  echo -ne "\e[5 q"
+}
+zle -N zle-line-init
+
+preexec() { echo -ne '\e[5 q' }
+echo -ne '\e[5 q'  # initial cursor shape
+
+# Edit command line in $EDITOR with ctrl-e
+autoload edit-command-line
+zle -N edit-command-line
+bindkey '^e' edit-command-line
+
+# FZF shortcuts
+bindkey -s '^f' 'fzfcd\n'
+bindkey -s '^v' 'fzfvim\n'
+

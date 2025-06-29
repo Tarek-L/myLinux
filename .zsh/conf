@@ -1,0 +1,26 @@
+# -----------------------------
+# Prompt Configuration
+# -----------------------------
+autoload -U colors && colors
+autoload -Uz vcs_info
+
+zstyle ':vcs_info:git:*' formats ' (%b)'
+zstyle ':vcs_info:*' enable git
+
+precmd() { vcs_info }
+
+setopt prompt_subst
+PROMPT='%B%{$fg[white]%}[%{$fg[cyan]%}%n%{$fg[yellow]%}@%{$fg[green]%}%M %{$fg[magenta]%}%~%{$fg[cyan]%}${vcs_info_msg_0_}%{$fg[white]%}]%{$reset_color%}
+%F{yellow}❯%f '
+
+# -----------------------------
+# Completion Settings
+# -----------------------------
+autoload -U compinit
+zmodload zsh/complist
+compinit
+_comp_options+=(globdots)
+
+zstyle ':completion:*' menu select
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+

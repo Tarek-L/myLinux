@@ -1,0 +1,14 @@
+# -----------------------------
+# Aliases
+# -----------------------------
+alias vim='$EDITOR'
+alias neofetch='fastfetch --logo arch'
+alias hist='cat .zsh_hist | sort -rn | fzf'
+alias ls='logo-ls -D'
+alias la='logo-ls -AD'
+alias lA='logo-ls -alD'
+alias xr='xrdb merge'
+alias x='chmod +x'
+alias py='python'
+alias ts='python ~/cp/codeforces/tester.py'
+
