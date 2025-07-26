@@ -17,7 +17,7 @@ autoload -Uz vcs_info
 autoload -U colors && colors
 autoload -Uz vcs_info
 
-# Git status formats (same as yours)
+# Git status formats 
 zstyle ':vcs_info:git:*' formats '%F{yellow} %b%f%F{green}%c%f%F{red}%a%f%F{magenta}%m%f%F{blue}%u%f'
 zstyle ':vcs_info:git:*' actionformats '%F{yellow} %b|%a%u%c%f'
 
@@ -30,7 +30,6 @@ zstyle ':vcs_info:git:*' untrackedstr '%'
 precmd() { vcs_info }
 setopt prompt_subst
 
-# Now build a glowy prompt using bold and $fg colors wrapped in %{...%}
 PROMPT='%B%{$fg[cyan]%}%~ %{$fg[green]%}${vcs_info_msg_0_}%{$fg[magenta]%}
 ❯ %{$reset_color%}%b'
 
