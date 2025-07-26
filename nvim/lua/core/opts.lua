@@ -18,3 +18,4 @@ vim.opt.signcolumn = "yes"
 vim.opt.clipboard = "unnamedplus"
 vim.opt.updatetime = 250
 vim.opt.timeoutlen = 300
+vim.opt.encoding = "utf-8"

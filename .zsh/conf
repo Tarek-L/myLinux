@@ -4,14 +4,35 @@
 autoload -U colors && colors
 autoload -Uz vcs_info
 
-zstyle ':vcs_info:git:*' formats ' (%b)'
+#zstyle ':vcs_info:git:*' formats ' (%b)'
+#zstyle ':vcs_info:*' enable git
+
+#precmd() { vcs_info }
+
+#setopt prompt_subst
+#PROMPT='%B%{$fg[white]%}[%{$fg[cyan]%}%n%{$fg[yellow]%}@%{$fg[green]%}%M %{$fg[magenta]%}%~%{$fg[cyan]%}${vcs_info_msg_0_}%{$fg[white]%}]%{$reset_color%}
+#%F{yellow}❯%f '
+
+
+autoload -U colors && colors
+autoload -Uz vcs_info
+
+# Git status formats (same as yours)
+zstyle ':vcs_info:git:*' formats '%F{yellow} %b%f%F{green}%c%f%F{red}%a%f%F{magenta}%m%f%F{blue}%u%f'
+zstyle ':vcs_info:git:*' actionformats '%F{yellow} %b|%a%u%c%f'
+
 zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:git:*' check-for-changes true
+zstyle ':vcs_info:git:*' stagedstr '+'
+zstyle ':vcs_info:git:*' unstagedstr '*'
+zstyle ':vcs_info:git:*' untrackedstr '%'
 
 precmd() { vcs_info }
-
 setopt prompt_subst
-PROMPT='%B%{$fg[white]%}[%{$fg[cyan]%}%n%{$fg[yellow]%}@%{$fg[green]%}%M %{$fg[magenta]%}%~%{$fg[cyan]%}${vcs_info_msg_0_}%{$fg[white]%}]%{$reset_color%}
-%F{yellow}❯%f '
+
+# Now build a glowy prompt using bold and $fg colors wrapped in %{...%}
+PROMPT='%B%{$fg[cyan]%}%~ %{$fg[green]%}${vcs_info_msg_0_}%{$fg[magenta]%}
+❯ %{$reset_color%}%b'
 
 # -----------------------------
 # Completion Settings
