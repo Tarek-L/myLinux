@@ -1,0 +1,4 @@
+#!/bin/sh
+
+touch "$(date --rfc-3339=date).md"
+

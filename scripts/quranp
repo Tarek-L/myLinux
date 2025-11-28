@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+AUDIO_DIR="$HOME/Audio"
+
+if [ ! -d "$AUDIO_DIR" ]; then
+    exit 0
+fi
+
+chosen=$(ls "$AUDIO_DIR" | dmenu -i -l 20)
+[ -z "$chosen" ] && exit 0  
+
+audio="$AUDIO_DIR/$chosen"
+
+nohup mpv "$audio" >/dev/null 2>&1 &

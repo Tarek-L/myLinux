@@ -24,11 +24,14 @@ fzfcd() {
 }
 
 fzfvim() {
-  local fil
-  fil=$(fd . "${1:-.}" --type f --hidden "${fzf_exclude[@]}" 2>/dev/null | \
-    fzf --height=40% --layout=reverse \
+  local selected
+  selected=$(fd . "${1:-.}" --type f --hidden "${fzf_exclude[@]}" 2>/dev/null | \
+    fzf --multi --height=40% --layout=reverse \
         --preview '[[ $(command -v bat) ]] && bat --style=numbers --color=always --line-range=:100 {} || head -n 100 {}' \
         --preview-window=right:50%:wrap \
-        --bind 'ctrl-j:down,ctrl-k:up,ctrl-h:toggle-preview,ctrl-l:accept') && nvim "$fil"
+        --bind 'ctrl-j:down,ctrl-k:up,ctrl-h:toggle-preview,ctrl-l:accept')
+
+  # Only proceed if something was selected
+  [[ -n $selected ]] && nvim ${(f)selected}
 }
 

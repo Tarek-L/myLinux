@@ -10,6 +10,8 @@ alias lA='logo-ls -alD'
 alias xr='xrdb merge'
 alias x='chmod +x'
 alias py='python'
-alias ts='python ~/cp/codeforces/tester.py'
+alias ts='python tester.py'
 alias act='source ~/venv/bin/activate'
+
+alias krita='krita --nosplash'
 

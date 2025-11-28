@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+EMOJI_FILE="$HOME/scripts/emoji.txt"
+
+if [ ! -f "$EMOJI_FILE" ]; then
+    exit 0
+fi
+
+chosen=$(cat "$EMOJI_FILE" | dmenu -i -l 20)
+[ -z "$chosen" ] && exit 0  
+
+emoji=$(echo "$chosen" | awk -F'=' '{print $2}')
+echo -n "$emoji" | xclip -selection clipboard

@@ -1,0 +1,39 @@
+
+#!/usr/bin/env bash
+
+command -v yt-dlp >/dev/null 2>&1 || { echo "Error: yt-dlp is not installed."; exit 1; }
+
+MODE="$1"
+URL="$2"
+TARGET_DIR="$3"
+
+case "$MODE" in
+  video)
+    # Single video, video + audio, <=1080p
+    yt-dlp -f "bestvideo[height<=1080]+bestaudio/best[height<=1080]" \
+      -o "${TARGET_DIR}/%(title)s.%(ext)s" "$URL"
+    ;;
+  playlist)
+    # Entire playlist, video + audio, <=1080p
+    yt-dlp -f "bestvideo[height<=1080]+bestaudio/best[height<=1080]" \
+      -o "${TARGET_DIR}/%(playlist_index)s - %(title)s.%(ext)s" "$URL"
+    ;;
+  audio)
+    # Single video → audio only (mp3)
+    yt-dlp -x --audio-format mp3 \
+      -o "${TARGET_DIR}/%(title)s.%(ext)s" "$URL"
+    ;;
+  playlist_audio)
+    # Entire playlist → audio only (mp3)
+    yt-dlp -x --audio-format mp3 \
+      -o "${TARGET_DIR}/%(playlist_index)s - %(title)s.%(ext)s" "$URL"
+    ;;
+  *)
+    echo "Usage:"
+    echo "  $0 video           <VIDEO_URL>       <TARGET_DIR>   # Download single video in up to Full HD (1080p)"
+    echo "  $0 playlist        <PLAYLIST_URL>    <TARGET_DIR>   # Download playlist video up to Full HD"
+    echo "  $0 audio           <VIDEO_URL>       <TARGET_DIR>   # Download audio only (mp3) from single video"
+    echo "  $0 playlist_audio  <PLAYLIST_URL>    <TARGET_DIR>   # Download audio only (mp3) from entire playlist"
+    exit 1
+    ;;
+esac

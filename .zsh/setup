@@ -9,7 +9,7 @@
 #fi
 
 # Automatically start tmux if not inside tmux, in an interactive shell, and not on a TTY
-#if [[ -z "$TMUX" && -o interactive && $(tty) != /dev/tty* ]]; then
-#  tmux attach-session -t main 2>/dev/null || tmux new-session -s main
-#fi
+if [[ -z "$TMUX" && -o interactive && $(tty) != /dev/tty* ]]; then
+  tmux attach-session -t main 2>/dev/null || tmux new-session -s main
+fi
 
